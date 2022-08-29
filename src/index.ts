@@ -1,7 +1,6 @@
 import express from 'express'
-import { isEnv } from './env'
 
-const PORT = isEnv(['production']) ? 80 : 8080
+const PORT = process.env.PORT ?? '8080'
 
 const app = express()
 
