@@ -1,1 +1,2 @@
-discordbot: npm run start
+install: npm i
+web: npm run start
