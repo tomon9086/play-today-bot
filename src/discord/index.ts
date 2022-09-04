@@ -24,24 +24,7 @@ export const registerSlashCommands = () => {
     return Promise.reject('not ready')
   }
 
-  return client.application.commands
-    .set(commands)
-    .then(() => {
-      client.on('interactionCreate', async (interaction) => {
-        if (!interaction.isChatInputCommand()) {
-          return
-        }
-
-        const { commandName } = interaction
-
-        switch (commandName) {
-          case 'ping':
-            await interaction.reply(`Hi, ${interaction.user.username}!`)
-            break
-        }
-      })
-
-      return
-    })
-    .catch(console.error)
+  return client.application.commands.set(commands).catch(console.error)
 }
+
+export * from './webhook'

@@ -1,5 +1,5 @@
 import express from 'express'
-import { registerSlashCommands } from './discord'
+import { registerSlashCommands, interactionsHandler } from './discord'
 
 const PORT = process.env.PORT ?? '8080'
 
@@ -24,6 +24,8 @@ const tryInit = () =>
     })
 
 tryInit()
+
+app.post('/interactions', interactionsHandler)
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
