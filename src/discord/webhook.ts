@@ -129,7 +129,8 @@ export const interactionsHandler: RequestHandler[] = [
     if (interaction.type === InteractionType.ApplicationCommand) {
       const { name } = interaction.data ?? {}
 
-      console.log(interaction)
+      console.log('interaction:', interaction.id)
+      // console.log(interaction)
 
       switch (name) {
         case 'ping':
